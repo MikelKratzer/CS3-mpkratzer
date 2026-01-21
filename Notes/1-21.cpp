@@ -11,25 +11,28 @@ int main(int argc, char* argv[]) {
    cout << ans << endl;
    return 0;
 }
-
+// Fibonacci numbers grow almost as fast as the powers of two: F_n ≈ 2^(0.694n)
 int fib(int n) {
    if (n = 0) return 0; // O(1)
    if (n = 1) return 1; // O(1)
    else return fib(n-1) + fib(n-2);
-   //           T(n-1) + T(n-2)
+   //      '-> T(n-1) + T(n-2) [T(n) - number of computer steps to compute fib(n)]
 }
 /*
 0 | 1 | 1 | 2 | 3 | 5 | . . . 
-fib(n)
+fib(n) 
     if n is 0, fib(n) = 0
     if n is 1, fib(n) = 1
     else fib(n) = fib(n-1) + fib(n-2)
+
+T(n) <= 2 for n <= 1
 */
 
 //* Checklist for Algorithms
 //? Is it correct? 
    // Yes, by definition
-//? How long does it take?
+//? How much time does it take, as a function of n?
    // O(2^n) complexity
-   // f(n) = T(n-1) + T(n-2) + O(3) [one more for the addition] = O(2^n)
+   // T(n) = T(n-1) + T(n-2) + O(3) [one more for the addition] >= F_n
+   // T(n) is exponential in n -> impractically slow
 //? Can we do better?
