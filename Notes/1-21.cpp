@@ -7,17 +7,18 @@ int fib(int n);
 
 int main(int argc, char* argv[]) {
    int ans;
-   ans = fib(1);
+   ans = fib(6);
    cout << ans << endl;
    return 0;
 }
 // Fibonacci numbers grow almost as fast as the powers of two: F_n ≈ 2^(0.694n)
+// Recursive: O(2^n) time, O(n) stack space
 int fib(int n) {
-   if (n = 0) return 0; // O(1)
-   if (n = 1) return 1; // O(1)
-   else return fib(n-1) + fib(n-2);
-   //      '-> T(n-1) + T(n-2) [T(n) - number of computer steps to compute fib(n)]
-}
+    if (n <= 0) return 0;
+    if (n == 1) return 1;
+    return fib(n - 1) + fib(n - 2);
+    //      '-> T(n-1) + T(n-2) [T(n) - number of computer steps to compute fib(n)]
+}     
 /*
 0 | 1 | 1 | 2 | 3 | 5 | . . . 
 fib(n) 
